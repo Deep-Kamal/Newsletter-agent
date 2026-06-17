@@ -1,16 +1,35 @@
 import streamlit as st
 
-from agent import (
-    run_newsletter_agent
+st.set_page_config(
+    page_title="AI Newsletter Agent"
 )
 
 st.title(
     "AI Newsletter Agent"
 )
 
+try:
+
+    from agent import (
+        run_newsletter_agent
+    )
+
+    st.success(
+        "Agent loaded"
+    )
+
+except Exception as e:
+
+    st.error(
+        str(e)
+    )
+
 goal = st.text_area(
     "Goal",
-    value="""Create a weekly newsletter on latest AI agent news and send it to subscribers"""
+    value="""
+Create a weekly newsletter
+on latest AI agent news
+"""
 )
 
 mode = st.selectbox(
@@ -25,39 +44,11 @@ if st.button(
     "Run Agent"
 ):
 
-    with st.spinner(
-        "Running..."
-    ):
-
-        result = (
-            run_newsletter_agent(
-                goal,
-                mode
-            )
+    result = (
+        run_newsletter_agent(
+            goal,
+            mode
         )
+    )
 
-    if result != "Rejected":
-
-        st.success(
-            "Completed"
-        )
-
-        st.subheader(
-            "Execution Plan"
-        )
-
-        st.write(
-            result["plan"]
-        )
-
-        st.subheader(
-            "Newsletter"
-        )
-
-        st.markdown(
-            result[
-                "newsletter"
-            ]
-        )
-
-        st.info(f"""Saved:{result['file']}""")
+    st.write(result)
