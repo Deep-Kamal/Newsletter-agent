@@ -113,7 +113,6 @@ Create `.env`
 
 ```env
 GOOGLE_API_KEY=YOUR_GEMINI_KEY
-TAVILY_API_KEY=YOUR_TAVILY_KEY
 ```
 
 ---
