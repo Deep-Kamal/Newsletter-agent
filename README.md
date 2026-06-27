@@ -5,7 +5,7 @@ An autonomous AI agent that researches the latest AI agent news, summarizes arti
 ---
 
 ## Assignment Objective
- 
+   
 Build a mini autonomous AI agent that receives a plain English goal and completes the entire workflow automatically.    
 
 Example Goal:
